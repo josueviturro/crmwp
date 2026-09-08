@@ -28,6 +28,7 @@ model User {
   tenantId  String
   tenant    Tenant   @relation(fields: [tenantId], references: [id])
   createdAt DateTime @default(now())
+  lastLoginAt DateTime?
 }
 
 enum Role {

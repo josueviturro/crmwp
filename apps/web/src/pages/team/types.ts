@@ -6,4 +6,5 @@ export type Member = {
   email: string;
   role: Role;
   createdAt: string;
+  lastLoginAt: string | null;
 };

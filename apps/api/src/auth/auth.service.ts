@@ -30,6 +30,7 @@ export class AuthService {
         password: hashedPassword,
         name: dto.name,
         tenantId: tenant.id,
+        lastLoginAt: new Date(),
       },
     });
 
@@ -46,6 +47,8 @@ export class AuthService {
     if (!passwordMatches) {
       throw new UnauthorizedException('Credenciales inválidas');
     }
+
+    await this.prisma.user.update({ where: { id: user.id }, data: { lastLoginAt: new Date() } });
 
     return this.buildAuthResponse(user);
   }

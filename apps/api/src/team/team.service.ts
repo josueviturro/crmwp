@@ -11,6 +11,7 @@ const memberSelect = {
   email: true,
   role: true,
   createdAt: true,
+  lastLoginAt: true,
 } as const;
 
 @Injectable()

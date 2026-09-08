@@ -24,6 +24,22 @@ export function TeamPage() {
     return new Date(dateString).toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' });
   }
 
+  function getLastLoginInfo(dateString: string | null): { text: string; stale: boolean } {
+    if (!dateString) {
+      return { text: 'Nunca inició sesión', stale: true };
+    }
+    const diffDays = Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 60 * 60 * 24));
+    if (diffDays <= 0) return { text: 'Activo hoy', stale: false };
+    if (diffDays === 1) return { text: 'Último acceso: ayer', stale: false };
+    if (diffDays < 7) return { text: `Último acceso: hace ${diffDays} días`, stale: false };
+    if (diffDays < 30) {
+      const weeks = Math.floor(diffDays / 7);
+      return { text: `Último acceso: hace ${weeks} semana${weeks > 1 ? 's' : ''}`, stale: diffDays >= 14 };
+    }
+    const months = Math.floor(diffDays / 30);
+    return { text: `Último acceso: hace ${months} mes${months > 1 ? 'es' : ''}`, stale: true };
+  }
+
   async function loadMembers() {
     setLoading(true);
     try {
@@ -142,7 +158,23 @@ export function TeamPage() {
                     {isMe && <span className={styles.youBadge}>VOS</span>}
                   </div>
                   <p className={styles.email}>{member.email}</p>
-                  <p className={styles.joinDate}>Miembro desde {formatJoinDate(member.createdAt)}</p>
+                  <div className={styles.metaRow}>
+                    <p className={styles.joinDate}>Miembro desde {formatJoinDate(member.createdAt)}</p>
+                    <span className={styles.metaDot}>•</span>
+                    {(() => {
+                      const lastLogin = getLastLoginInfo(member.lastLoginAt);
+                      return (
+                        <p className={lastLogin.stale ? styles.lastLoginStale : styles.lastLogin}>
+                          {lastLogin.stale && (
+                            <span className="material-symbols-outlined" style={{ fontSize: 13 }}>
+                              schedule
+                            </span>
+                          )}
+                          {lastLogin.text}
+                        </p>
+                      );
+                    })()}
+                  </div>
                 </div>
                 <div className={styles.actions}>
                   {isAdmin && !isMe ? (
