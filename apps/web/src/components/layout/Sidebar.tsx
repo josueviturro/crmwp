@@ -32,7 +32,7 @@ export function Sidebar() {
       </div>
 
       <div className={styles.bottomSection}>
-        <NavLink to="/settings" title="Configuración" className={styles.settingsLink}>
+        <NavLink to="/team" title="Equipo" className={styles.settingsLink}>
           <span className="material-symbols-outlined icon-md">settings</span>
         </NavLink>
         <div className={styles.agentAvatarWrapper}>

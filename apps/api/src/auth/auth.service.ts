@@ -50,6 +50,17 @@ export class AuthService {
     return this.buildAuthResponse(user);
   }
 
+  async getProfile(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { id: true, name: true, email: true, role: true, tenantId: true },
+    });
+    if (!user) {
+      throw new UnauthorizedException('El usuario ya no existe');
+    }
+    return user;
+  }
+
   private buildAuthResponse(user: { id: string; email: string; name: string; tenantId: string }) {
     const token = this.jwtService.sign({ sub: user.id, tenantId: user.tenantId });
     return {
