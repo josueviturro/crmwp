@@ -1,0 +1,15 @@
+.shell {
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.content {
+  padding-left: 4rem;
+}
+
+.main {
+  padding-top: 3.5rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background);
+}

@@ -1,33 +1,19 @@
-@import "tailwindcss";
-
-@theme {
-  /* Paleta Material 3 oscura (del diseño de referencia) */
+/* ============================================================
+   Design tokens — fuente única de verdad para colores, tipografía,
+   espaciados y radios. Cada componente los consume vía var(--...)
+   desde su propio archivo .module.css.
+   ============================================================ */
+:root {
+  /* Colores — paleta Material 3 oscura (del diseño de referencia) */
   --color-primary: #d0bcff;
   --color-on-primary: #3c0091;
   --color-primary-container: #a078ff;
   --color-on-primary-container: #340080;
-  --color-primary-fixed: #e9ddff;
-  --color-primary-fixed-dim: #d0bcff;
-  --color-on-primary-fixed: #23005c;
-  --color-on-primary-fixed-variant: #5516be;
 
   --color-secondary: #cebdff;
   --color-on-secondary: #381385;
   --color-secondary-container: #4f319c;
   --color-on-secondary-container: #bea8ff;
-  --color-secondary-fixed: #e8ddff;
-  --color-secondary-fixed-dim: #cebdff;
-  --color-on-secondary-fixed: #21005e;
-  --color-on-secondary-fixed-variant: #4f319c;
-
-  --color-tertiary: #d2bbff;
-  --color-on-tertiary: #3f008e;
-  --color-tertiary-container: #a476ff;
-  --color-on-tertiary-container: #36007d;
-  --color-tertiary-fixed: #eaddff;
-  --color-tertiary-fixed-dim: #d2bbff;
-  --color-on-tertiary-fixed: #25005a;
-  --color-on-tertiary-fixed-variant: #5a00c6;
 
   --color-error: #ffb4ab;
   --color-on-error: #690005;
@@ -38,12 +24,9 @@
   --color-on-background: #e2e2ec;
 
   --color-surface: #11131a;
-  --color-surface-dim: #11131a;
-  --color-surface-bright: #373941;
   --color-on-surface: #e2e2ec;
   --color-surface-variant: #33343c;
   --color-on-surface-variant: #cbc3d7;
-  --color-surface-tint: #d0bcff;
 
   --color-surface-container-lowest: #0c0e15;
   --color-surface-container-low: #191b22;
@@ -51,116 +34,95 @@
   --color-surface-container-high: #282a31;
   --color-surface-container-highest: #33343c;
 
-  --color-inverse-surface: #e2e2ec;
-  --color-inverse-on-surface: #2e3038;
-  --color-inverse-primary: #6d3bd7;
-
   --color-outline: #958ea0;
   --color-outline-variant: #494454;
 
-  /* Colores semánticos propios (no vienen del mockup, se agregan para no depender
-     de la paleta default de Tailwind — success/warning/info) */
+  /* Colores semánticos propios (success/warning/info) */
   --color-success: #34d399;
   --color-warning: #fbbf24;
   --color-info: #38bdf8;
 
+  /* Tipografías */
+  --font-heading: 'Geist', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
   /* Escala de espaciados */
-  --spacing-space-2xs: 0.125rem;
-  --spacing-space-xs: 0.25rem;
-  --spacing-space-sm: 0.5rem;
-  --spacing-space-md: 0.75rem;
-  --spacing-space-base: 1rem;
-  --spacing-space-lg: 1.25rem;
-  --spacing-space-xl: 1.5rem;
-  --spacing-space-2xl: 2rem;
-  --spacing-gutter: 1rem;
-  --spacing-col-sidebar: 24rem;
-  --spacing-col-crm-panel: 22rem;
+  --spacing-2xs: 0.125rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-base: 1rem;
+  --spacing-lg: 1.25rem;
+  --spacing-xl: 1.5rem;
+  --spacing-2xl: 2rem;
 
   /* Border radius */
-  --radius: 0.125rem;
-  --radius-lg: 0.25rem;
-  --radius-xl: 0.5rem;
-  --radius-full: 0.75rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
 
-  /* Tipografías */
-  --font-display: 'Geist', sans-serif;
-  --font-headline-lg: 'Geist', sans-serif;
-  --font-headline-lg-mobile: 'Geist', sans-serif;
-  --font-headline-md: 'Geist', sans-serif;
-  --font-headline-sm: 'Geist', sans-serif;
-  --font-body-lg: 'Geist', sans-serif;
-  --font-body-md: 'Geist', sans-serif;
-  --font-body-sm: 'Geist', sans-serif;
-  --font-label-md: 'Geist', sans-serif;
-  --font-label-sm: 'Geist', sans-serif;
-  --font-code-sm: 'JetBrains Mono', monospace;
+  /* Escala tipográfica (tamaño / interlineado / tracking / peso) */
+  --text-display-size: 32px;
+  --text-display-line: 40px;
+  --text-display-tracking: -0.02em;
+  --text-display-weight: 600;
 
-  /* Tamaños de texto (tamaño + interlineado + tracking + peso) */
-  --text-display: 32px;
-  --text-display--line-height: 40px;
-  --text-display--letter-spacing: -0.02em;
-  --text-display--font-weight: 600;
+  --text-headline-lg-size: 24px;
+  --text-headline-lg-line: 32px;
+  --text-headline-lg-tracking: -0.015em;
+  --text-headline-lg-weight: 600;
 
-  --text-headline-lg: 24px;
-  --text-headline-lg--line-height: 32px;
-  --text-headline-lg--letter-spacing: -0.015em;
-  --text-headline-lg--font-weight: 600;
+  --text-headline-md-size: 18px;
+  --text-headline-md-line: 24px;
+  --text-headline-md-tracking: -0.01em;
+  --text-headline-md-weight: 600;
 
-  --text-headline-lg-mobile: 20px;
-  --text-headline-lg-mobile--line-height: 28px;
-  --text-headline-lg-mobile--letter-spacing: -0.01em;
-  --text-headline-lg-mobile--font-weight: 600;
+  --text-headline-sm-size: 15px;
+  --text-headline-sm-line: 20px;
+  --text-headline-sm-tracking: -0.005em;
+  --text-headline-sm-weight: 600;
 
-  --text-headline-md: 18px;
-  --text-headline-md--line-height: 24px;
-  --text-headline-md--letter-spacing: -0.01em;
-  --text-headline-md--font-weight: 600;
+  --text-body-lg-size: 15px;
+  --text-body-lg-line: 22px;
+  --text-body-lg-weight: 400;
 
-  --text-headline-sm: 15px;
-  --text-headline-sm--line-height: 20px;
-  --text-headline-sm--letter-spacing: -0.005em;
-  --text-headline-sm--font-weight: 600;
+  --text-body-md-size: 14px;
+  --text-body-md-line: 20px;
+  --text-body-md-weight: 400;
 
-  --text-body-lg: 15px;
-  --text-body-lg--line-height: 22px;
-  --text-body-lg--font-weight: 400;
+  --text-body-sm-size: 13px;
+  --text-body-sm-line: 18px;
+  --text-body-sm-weight: 400;
 
-  --text-body-md: 14px;
-  --text-body-md--line-height: 20px;
-  --text-body-md--font-weight: 400;
+  --text-label-md-size: 12px;
+  --text-label-md-line: 16px;
+  --text-label-md-tracking: 0.01em;
+  --text-label-md-weight: 500;
 
-  --text-body-sm: 13px;
-  --text-body-sm--line-height: 18px;
-  --text-body-sm--font-weight: 400;
-
-  --text-label-md: 12px;
-  --text-label-md--line-height: 16px;
-  --text-label-md--letter-spacing: 0.01em;
-  --text-label-md--font-weight: 500;
-
-  --text-label-sm: 11px;
-  --text-label-sm--line-height: 14px;
-  --text-label-sm--letter-spacing: 0.02em;
-  --text-label-sm--font-weight: 600;
-
-  --text-code-sm: 12px;
-  --text-code-sm--line-height: 16px;
-  --text-code-sm--font-weight: 400;
+  --text-label-sm-size: 11px;
+  --text-label-sm-line: 14px;
+  --text-label-sm-tracking: 0.02em;
+  --text-label-sm-weight: 600;
 }
 
-@layer base {
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  body {
-    background-color: var(--color-background);
-    color: var(--color-on-surface);
-    overscroll-behavior: none;
-  }
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-heading);
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 /* Iconos Material Symbols: CSS base recomendada por Google para que rendericen bien */
@@ -180,7 +142,18 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Oculta la scrollbar visualmente sin desactivar el scroll */
+/* Tamaños de ícono reutilizables (se combinan con .material-symbols-outlined) */
+.icon-sm {
+  font-size: 18px;
+}
+.icon-md {
+  font-size: 20px;
+}
+.icon-lg {
+  font-size: 22px;
+}
+
+/* Oculta la scrollbar visualmente sin desactivar el scroll (clase compartida global) */
 .scrollbar-none {
   scrollbar-width: none;
   -ms-overflow-style: none;

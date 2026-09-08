@@ -1,0 +1,120 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background-color: var(--color-surface-container-lowest);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--spacing-md);
+  border-right: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-secondary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-secondary-container);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.navItem {
+  position: relative;
+  width: 100%;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+}
+.navItem:hover {
+  background-color: var(--color-surface-container);
+  color: var(--color-on-surface);
+}
+
+.navItemActive,
+.navItemActive:hover {
+  background-color: var(--color-secondary-container);
+  color: var(--color-secondary);
+  border-left: 2px solid var(--color-primary);
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.settingsLink {
+  width: 100%;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+.settingsLink:hover {
+  background-color: var(--color-surface-container);
+  color: var(--color-on-surface);
+}
+
+.agentAvatarWrapper {
+  position: relative;
+  padding-top: var(--spacing-xs);
+}
+
+.agentAvatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-container-high);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 40%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface);
+}
+
+.statusDot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-surface-container-lowest);
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary-fixed":"#eaddff","on-surface":"#e2e2ec","background":"#11131a","error":"#ffb4ab","outline":"#958ea0","on-tertiary-container":"#36007d","surface-dim":"#11131a","surface-container-highest":"#33343c","on-surface-variant":"#cbc3d7","tertiary-container":"#a476ff","primary-container":"#a078ff","error-container":"#93000a","secondary":"#cebdff","outline-variant":"#494454","on-primary-fixed":"#23005c","on-secondary-container":"#bea8ff","on-background":"#e2e2ec","primary-fixed":"#e9ddff","primary":"#d0bcff","on-primary-container":"#340080","surface-container-lowest":"#0c0e15","inverse-primary":"#6d3bd7","on-secondary":"#381385","on-primary":"#3c0091","inverse-on-surface":"#2e3038","surface-container-low":"#191b22","surface-variant":"#33343c","tertiary-fixed-dim":"#d2bbff","surface-container":"#1d1f27","on-secondary-fixed":"#21005e","on-error":"#690005","inverse-surface":"#e2e2ec","tertiary":"#d2bbff","secondary-container":"#4f319c","surface-container-high":"#282a31","on-tertiary-fixed-variant":"#5a00c6","surface-bright":"#373941","secondary-fixed":"#e8ddff","on-secondary-fixed-variant":"#4f319c","on-primary-fixed-variant":"#5516be","surface-tint":"#d0bcff","on-tertiary":"#3f008e","surface":"#11131a","primary-fixed-dim":"#d0bcff","on-tertiary-fixed":"#25005a","on-error-container":"#ffdad6","secondary-fixed-dim":"#cebdff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-lg":"1.25rem","col-sidebar":"24rem","space-2xl":"2rem","space-xs":"0.25rem","space-2xs":"0.125rem","col-crm-panel":"22rem","space-md":"0.75rem","space-sm":"0.5rem","space-xl":"1.5rem","space-base":"1rem","gutter":"1rem"},"fontFamily":{"headline-lg":["Geist"],"body-lg":["Geist"],"label-sm":["Geist"],"label-md":["Geist"],"headline-lg-mobile":["Geist"],"body-sm":["Geist"],"headline-md":["Geist"],"display":["Geist"],"code-sm":["JetBrains Mono"],"body-md":["Geist"],"headline-sm":["Geist"]},"fontSize":{"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-lg-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"display":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"code-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["15px",{"lineHeight":"20px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 bottom-0 w-16 bg-surface-container-lowest z-50 flex flex-col items-center justify-between py-space-md border-r border-outline-variant/30"><div class="flex flex-col items-center gap-space-lg w-full"><a class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container hover:bg-primary transition-colors hover:text-on-primary" data-path="conversations" href="#"><span class="material-symbols-outlined text-[22px]">bolt</span></a><nav class="flex flex-col items-center gap-space-xs w-full" data-active-classes="bg-secondary-container text-secondary border-l-2 border-primary"><a aria-current="page" class="relative w-full h-11 flex items-center justify-center transition-colors bg-secondary-container text-secondary border-l-2 border-primary" data-path="conversations" href="#" title="Inbox &amp; Chats"><span class="material-symbols-outlined text-[20px]">chat_bubble</span></a><a class="relative w-full h-11 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="leads-and-contacts" href="#" title="Contacts &amp; Leads"><span class="material-symbols-outlined text-[20px]">group</span></a><a class="relative w-full h-11 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="pipeline-deals" href="#" title="Deals &amp; Pipeline"><span class="material-symbols-outlined text-[20px]">view_kanban</span></a><a class="relative w-full h-11 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="revenue-analytics" href="#" title="Analytics"><span class="material-symbols-outlined text-[20px]">insights</span></a><a class="relative w-full h-11 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="automation-campaigns" href="#" title="Automations &amp; Campaigns"><span class="material-symbols-outlined text-[20px]">schema</span></a></nav></div><div class="flex flex-col items-center gap-space-md w-full"><a class="w-full h-11 flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="workspace-settings" href="#" title="Settings"><span class="material-symbols-outlined text-[20px]">settings</span></a><div class="relative group cursor-pointer pt-space-xs"><div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-on-surface hover:border-primary transition-colors"><span class="material-symbols-outlined text-[18px]">support_agent</span></div><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span></div></div></aside><div class="pl-16"><header class="fixed top-0 left-16 right-0 h-14 bg-surface-container-lowest/80 backdrop-blur-md z-40 border-b border-outline-variant/20 flex items-center justify-between px-space-base"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface">Pulse CRM</span><span class="px-space-xs py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-secondary border border-outline-variant/30">PROD</span></div><div class="flex items-center gap-space-base"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1 rounded border border-outline-variant/30"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">HubSpot Synced</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="pt-14 w-full min-h-screen bg-background"><div class="flex flex-col w-full">
+<!-- WhatsApp Web Style 3-Column Enterprise Workspace -->
+<div class="flex w-full h-[calc(100vh-3.5rem)] overflow-hidden bg-background">
+<!-- ================================================================= -->
+<!-- COL 1: CONVERSATIONS LIST (Fixed Left Panel)                     -->
+<!-- ================================================================= -->
+<aside class="w-80 xl:w-96 flex-shrink-0 flex flex-col bg-surface-container-lowest border-r border-outline-variant/30 select-none">
+<!-- List Header -->
+<div class="p-space-base pb-space-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">Mensajes</h1>
+<span class="px-space-xs py-0.5 rounded-full text-label-sm font-label-sm bg-primary-container/20 text-primary font-medium">12 activos</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors" title="Nueva conversación">
+<span class="material-symbols-outlined text-[20px]">edit_square</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors" title="Filtros avanzados">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Search Input -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full h-9 pl-9 pr-8 bg-surface-container rounded-xl text-body-sm text-on-surface placeholder:text-outline/70 border border-outline-variant/20 focus:border-primary focus:outline-none transition-colors" placeholder="Buscar por cliente, empresa o etiqueta..." type="text"/>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-outline cursor-pointer hover:text-on-surface">filter_list</span>
+</div>
+<!-- Filter Segment Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none text-label-sm font-label-sm">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-semibold whitespace-nowrap shadow-sm">Todos</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap flex items-center gap-1">
+<span>No leídos</span>
+<span class="w-4 h-4 rounded-full bg-primary-container text-on-primary-container text-[10px] flex items-center justify-center font-bold">4</span>
+</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">Mis chats</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap">Esperando rta</button>
+</div>
+</div>
+<!-- Conversations Scroll Stack -->
+<div class="flex-1 overflow-y-auto divide-y divide-outline-variant/15">
+<!-- Conversation Item 1: ACTIVE -->
+<div class="relative group flex items-start gap-space-sm p-space-base bg-surface-container-low cursor-pointer border-l-4 border-primary transition-colors">
+<div class="relative flex-shrink-0">
+<img class="w-11 h-11 rounded-xl object-cover ring-1 ring-primary/40" data-alt="Professional studio headshot of a corporate VP man in dark navy suit smiling confidently against charcoal office backdrop, studio lighting, clean enterprise portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1qd5BrAVvwDqnLH9l60K6zX-baI6dAcE43IopS-FXx4XM_g1Hm_bR2TmS6PX0_nW6mAKeKc1jHhZztE7kqe9nr3RefJzMje40Gg2gc_SKyIWwIYQW-7cMDdJkMs_iBirsUJ5j_RgmZ5iyGn2nHi6lkKB5EPBz2FUoFvJdMmw9RhXTNMWGDQMcWB5sVPKqBeWRj5y9Gr8tb7k1H7plmkSEvu0UAeKvI98i7dfELdohZBfPCkZF3wLM"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-surface-container-low" title="En línea"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="font-headline-sm text-body-md font-semibold text-on-surface truncate">Martín Gómez</span>
+<span class="font-label-sm text-label-sm text-primary font-medium flex-shrink-0">11:42</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-[11px] font-mono text-outline font-medium tracking-tight truncate">TechCorp Solutions</span>
+<span class="inline-flex items-center px-1.5 py-0.2 text-[10px] font-semibold rounded bg-primary-container/20 text-primary border border-primary/30">Calificado</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+<span>Excelente, te envié la propuesta revisada...</span>
+</p>
+</div>
+</div>
+<!-- Conversation Item 2: Unread -->
+<div class="relative group flex items-start gap-space-sm p-space-base hover:bg-surface-container-low/60 cursor-pointer transition-colors">
+<div class="relative flex-shrink-0">
+<img class="w-11 h-11 rounded-xl object-cover" data-alt="Headshot of modern tech finance executive woman with glasses and blazer in sleek glass fintech office, soft warm studio key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCL_O8uufR9V3qwunHnc_HlsHzHsH5vSFCYmeOCs-C2Upuwb8dnpry7U6MZOFkVxcxDBsnrfj2BMbZGjm426AuKhNcLr7ks0WCZxmXnLagtvWuekL11MhjIWNeZaz5Syfp6_VGUncAHdK-sIUpMKrGtXrj7sZEJad4c67ONEHcoSq_AUZjUxEEPCS7zVV1FmULANRwPaY8Les6zdTTp2CxrgDHnw4SRfomQDCc0MaFD-S3HSAkTKYn"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest" title="En línea"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="font-headline-sm text-body-md font-semibold text-on-surface truncate">Valeria Rios</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex-shrink-0">10:15</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-[11px] font-mono text-outline font-medium tracking-tight truncate">FinPay LatAm</span>
+<span class="inline-flex items-center px-1.5 py-0.2 text-[10px] font-semibold rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">Demo Demo</span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<p class="font-body-sm text-body-sm text-on-surface font-medium truncate">Nos gustaría coordinar una demo técnica con el equipo...</p>
+<span class="w-5 h-5 rounded-full bg-primary text-on-primary text-[11px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+</div>
+</div>
+</div>
+<!-- Conversation Item 3 -->
+<div class="relative group flex items-start gap-space-sm p-space-base hover:bg-surface-container-low/60 cursor-pointer transition-colors">
+<div class="relative flex-shrink-0">
+<img class="w-11 h-11 rounded-xl object-cover opacity-90" data-alt="Corporate headshot of logistics director man in smart casual attire, modern distribution company warehouse blurred behind glass windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCge7oRhhrK3-5c7Aau2vzgZVr7OeKjFV2C9yCA_QgCjkxsT63q2taLpjizML3mJypQHgFfPcII_CLY5WO3MlEJvA7ZJvI6VmXBsNTSkF0VvvbJTn8TCtmqu8iINKWT2-PtHRaW4UHUzxlCI2D7naFImBWfHi7i453GkHthMSzyzFepLSLUPeY2SbkAo5Rc700tTQ4T_q1ncJoCLZHy9z4UUNWGmJ5_0ViSPEFRbiOhLfUSUXd657BW"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Carlos Benítez</span>
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">Ayer</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-[11px] font-mono text-outline font-medium tracking-tight truncate">Logix Cargo</span>
+<span class="inline-flex items-center px-1.5 py-0.2 text-[10px] font-semibold rounded bg-surface-container-high text-on-surface-variant">Negociación</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-outline" style="font-variation-settings: 'FILL' 1;">done_all</span>
+<span>Quedamos a la espera del contrato firmado.</span>
+</p>
+</div>
+</div>
+<!-- Conversation Item 4 -->
+<div class="relative group flex items-start gap-space-sm p-space-base hover:bg-surface-container-low/60 cursor-pointer transition-colors">
+<div class="relative flex-shrink-0">
+<div class="w-11 h-11 rounded-xl bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-primary font-semibold">
+              LM
+            </div>
+<span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-400 ring-2 ring-surface-container-lowest" title="Ausente"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Lucía Morales</span>
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">Ayer</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-[11px] font-mono text-outline font-medium tracking-tight truncate">SaaSify</span>
+<span class="inline-flex items-center px-1.5 py-0.2 text-[10px] font-semibold rounded bg-sky-500/15 text-sky-300 border border-sky-500/30">Nuevo Lead</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Hola! ¿Tienen soporte 24/7 para el plan Enterprise?</p>
+</div>
+</div>
+<!-- Conversation Item 5 -->
+<div class="relative group flex items-start gap-space-sm p-space-base hover:bg-surface-container-low/60 cursor-pointer transition-colors">
+<div class="relative flex-shrink-0">
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant font-semibold">
+              DH
+            </div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="font-headline-sm text-body-md font-medium text-on-surface truncate">Diego Herrera</span>
+<span class="font-label-sm text-label-sm text-outline flex-shrink-0">18 Mar</span>
+</div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-[11px] font-mono text-outline font-medium tracking-tight truncate">CloudScale DevOps</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline truncate">Te confirmo la reunión para el jueves a las 15hs.</p>
+</div>
+</div>
+</div>
+<!-- Quick Sync Status Footer -->
+<div class="p-space-sm px-space-base bg-surface-container-lowest border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span>WhatsApp Cloud API v19.0</span>
+</div>
+<span class="font-mono">Latencia 34ms</span>
+</div>
+</aside>
+<!-- ================================================================= -->
+<!-- COL 2: CENTER CHAT CANVAS (Fluid Panel)                           -->
+<!-- ================================================================= -->
+<section class="flex-1 flex flex-col min-w-[480px] bg-[#090a0f] relative overflow-hidden">
+<!-- WhatsApp Pattern Ambient Texture -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#d0bcff 1px, transparent 1px); background-size: 24px 24px;"></div>
+<!-- Top Chat Header Bar -->
+<header class="h-16 px-space-lg bg-surface-container-lowest/90 backdrop-blur border-b border-outline-variant/30 flex items-center justify-between z-10">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative flex-shrink-0">
+<img class="w-10 h-10 rounded-xl object-cover border border-primary/30" data-alt="Close up corporate portrait avatar of business client Martín Gómez, smiling VP level software tech lead" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRdDM-6cVUrusD4Hfg8pUAlKNWxZHd-ZWc1EQpevZ2IfgcJqrslwhJrnDJ2etnkEEN-tFDDT0d69z1if3xKcPj4RLvE5q-30aywNBL4o8Mkh8kKgWp7lRbLwp71q9iqD4ccJiJfdfzgd50yIb9B3qGFLO-1_xEIQx6ER1R4Lr6wDKTWjd-WdPwVVTgXJAtayq1vTgugexIpoi1hBXVPHKUVYwDpz1FG1VH0JF5wzs5MehIHTuL7-GC"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate">Martín Gómez</span>
+<span class="text-xs px-2 py-0.5 rounded bg-primary-container/15 text-primary border border-primary/30 font-medium">ARR $45k</span>
+<span class="text-[11px] text-emerald-400 flex items-center gap-0.5 font-medium hidden sm:inline-flex">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                WhatsApp Business API
+              </span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-emerald-400 font-medium">En línea</span>
+<span>•</span>
+<span class="truncate">TechCorp Solutions</span>
+<span>•</span>
+<span class="text-secondary flex items-center gap-1 font-mono text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Asignado a: Ti (Santiago)
+              </span>
+</div>
+</div>
+</div>
+<!-- Chat Header Actions -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors" title="Iniciar llamada VoIP">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors" title="Llamada de Video">
+<span class="material-symbols-outlined text-[20px]">videocam</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors" title="Buscar en la conversación">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<div class="h-5 w-px bg-outline-variant/30 mx-1"></div>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors" title="Opciones de conversación">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Message Stack Stream -->
+<div class="flex-1 overflow-y-auto p-space-base xl:p-space-lg flex flex-col gap-space-md z-10">
+<!-- Date Divider -->
+<div class="flex items-center justify-center my-1">
+<span class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high/90 text-on-surface-variant border border-outline-variant/30 shadow-sm backdrop-blur">
+            Hoy
+          </span>
+</div>
+<!-- Automation Event Pill -->
+<div class="flex items-center justify-center">
+<div class="max-w-md px-3.5 py-1.5 rounded-xl bg-surface-container-low/90 border border-outline-variant/30 text-center flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-primary text-[16px]">bolt</span>
+<p class="text-label-sm font-label-sm text-on-surface-variant">
+              Lead asignado automáticamente por regla <span class="text-primary font-medium">Inbound Enterprise LatAm</span>
+</p>
+</div>
+</div>
+<!-- Message 1: Incoming Customer -->
+<div class="flex flex-col items-start max-w-xl group">
+<div class="flex items-baseline gap-2 mb-1 px-1">
+<span class="text-label-sm font-label-sm font-semibold text-secondary">Martín Gómez</span>
+<span class="text-[10px] text-outline font-mono">TechCorp</span>
+</div>
+<div class="p-3.5 rounded-2xl rounded-bl-xs bg-surface-container-high border border-outline-variant/30 text-on-surface shadow-md">
+<p class="font-body-md text-body-md leading-relaxed text-slate-100">
+              Hola Santiago, pudimos revisar la presentación con el CTO. Nos interesa mucho la integración con nuestro stack actual. ¿Podrías enviarnos el desglose de precios para 50 puestos con el soporte 24/7 incluido?
+            </p>
+<div class="flex items-center justify-end gap-1 mt-1 text-right">
+<span class="text-label-sm font-label-sm text-outline font-mono">11:18</span>
+</div>
+</div>
+</div>
+<!-- Message 2: Outgoing Agent with Violet Identity -->
+<div class="flex flex-col items-end max-w-xl self-end group">
+<div class="flex items-baseline gap-2 mb-1 px-1">
+<span class="text-label-sm font-label-sm font-semibold text-primary">Tú (Santiago Mendez)</span>
+</div>
+<div class="p-3.5 rounded-2xl rounded-br-xs bg-[#301659] border border-primary/40 text-white shadow-md">
+<p class="font-body-md text-body-md leading-relaxed text-purple-50">
+              ¡Hola Martín! Qué excelente noticia. Totalmente, les armé una propuesta a medida con un 18% de descuento por contratación anual, onboarding dedicado y migración sin costo.
+            </p>
+<p class="font-body-md text-body-md leading-relaxed text-purple-50 mt-1.5">
+              Te adjunto el documento comercial formal con el desglose técnico y las cláusulas de SLA acá abajo:
+            </p>
+<!-- Attachment Card Component -->
+<div class="mt-3 p-3 rounded-xl bg-surface-container-lowest/80 border border-primary/30 flex items-center justify-between gap-3 text-left">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-error-container/40 border border-error/30 flex items-center justify-center text-error flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">picture_as_pdf</span>
+</div>
+<div class="min-w-0">
+<div class="font-label-md text-label-md font-semibold text-white truncate">Propuesta_Comercial_TechCorp_v2.pdf</div>
+<div class="text-[11px] font-mono text-purple-200/80">2.4 MB • Cotización Enterprise</div>
+</div>
+</div>
+<div class="flex items-center gap-1 flex-shrink-0">
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-purple-200 transition-colors" title="Descargar PDF">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="px-2.5 py-1 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-label-sm font-semibold transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Ver</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-end gap-1.5 mt-2 text-right">
+<span class="text-label-sm font-label-sm text-purple-200/70 font-mono">11:30</span>
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+<!-- Message 3: Customer Response (Final Trigger) -->
+<div class="flex flex-col items-start max-w-xl group">
+<div class="flex items-baseline gap-2 mb-1 px-1">
+<span class="text-label-sm font-label-sm font-semibold text-secondary">Martín Gómez</span>
+<span class="text-[10px] text-outline font-mono">TechCorp</span>
+</div>
+<div class="p-3.5 rounded-2xl rounded-bl-xs bg-surface-container-high border border-outline-variant/30 text-on-surface shadow-md">
+<p class="font-body-md text-body-md leading-relaxed text-slate-100">
+              Excelente, te envié la propuesta revisada con el visto bueno legal. Si podemos agendar la llamada de cierre hoy a las <strong class="text-white font-semibold underline decoration-primary decoration-2 underline-offset-2">16:00 hs</strong>, avanzamos con la firma digital en DocuSign.
+            </p>
+<div class="flex items-center justify-end gap-1 mt-1 text-right">
+<span class="text-label-sm font-label-sm text-outline font-mono">11:42</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Action CRM Macros Row -->
+<div class="px-space-base py-1.5 bg-surface-container-lowest border-t border-outline-variant/20 flex items-center gap-2 overflow-x-auto scrollbar-none z-10">
+<span class="text-[11px] font-semibold text-outline uppercase tracking-wider pl-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">flash_on</span> Atajos:
+        </span>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-secondary text-label-sm font-medium whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span> Link a Calendly (16:00hs)
+        </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-on-surface text-label-sm font-medium whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">description</span> Plantilla: Envío de contrato
+        </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-on-surface text-label-sm font-medium whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">alarm_add</span> Crear recordatorio 16:00
+        </button>
+</div>
+<!-- Composer Input Bar -->
+<div class="p-space-base bg-surface-container-lowest border-t border-outline-variant/30 z-10">
+<div class="flex items-end gap-space-sm bg-surface-container rounded-2xl p-2 border border-outline-variant/30 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<div class="flex items-center gap-1 pb-1 text-on-surface-variant">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Adjuntar archivo o cotización">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Insertar emoji">
+<span class="material-symbols-outlined text-[20px]">mood</span>
+</button>
+</div>
+<div class="flex-1 min-w-0">
+<textarea class="w-full bg-transparent text-body-md text-on-surface placeholder:text-outline/70 border-0 resize-none focus:outline-none max-h-32 py-1.5 scrollbar-none font-body-md" placeholder="Escribe un mensaje o escribe '/' para insertar comandos de CRM..." rows="1"></textarea>
+</div>
+<div class="flex items-center gap-1 pb-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Mensaje de voz">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<button class="w-10 h-10 rounded-xl bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center shadow-lg transition-transform active:scale-95" title="Enviar mensaje">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between px-2 pt-1 text-[11px] text-outline font-mono">
+<span>Enter para enviar • Shift+Enter nueva línea</span>
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Cifrado de extremo a extremo
+          </span>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- COL 3: RIGHT CRM CONTEXT PANEL (Fixed Sidebar)                    -->
+<!-- ================================================================= -->
+<aside class="w-80 xl:w-96 flex-shrink-0 flex flex-col bg-surface-container-lowest border-l border-outline-variant/30 overflow-y-auto">
+<!-- Contact Header Section -->
+<div class="p-space-base border-b border-outline-variant/20 flex flex-col items-center text-center relative">
+<div class="absolute top-space-base right-space-base">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" title="Editar contacto">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+<div class="relative mb-3">
+<img class="w-20 h-20 rounded-2xl object-cover border-2 border-primary/40 shadow-xl" data-alt="Martín Gómez profile hero headshot, high quality portrait of enterprise VP of engineering" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ4-UjqN6yQAgQsmipFLfPP6yP4AhconK8Z3i8F46wfNc7rHXoEhgBNq_8pdbsd_Qujrk5tF1fXIPAc4DsanbYguNFr5wJ1kWREiF9NIiMpQ8lgw729vUjlOafNUg6bCQqzIzU659FuFPw41R-saHLGkuggeN0FDp6timd7t-mXznM-x-XriwAPh4B96_821dwWRkZhoa_ISPnfAJBxvwu6vSWH2pQYjaREj4YsXDdON8FTffCXrMj"/>
+<span class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center ring-4 ring-surface-container-lowest text-[13px]" title="WhatsApp Verificado">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Martín Gómez</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">VP of Engineering @ <span class="text-secondary font-medium">TechCorp</span></p>
+<!-- Quick Communication Icon Group -->
+<div class="grid grid-cols-3 gap-2 w-full mt-4">
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors border border-outline-variant/30">
+<span class="material-symbols-outlined text-[18px] text-primary mb-0.5">call</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Llamar</span>
+</button>
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors border border-outline-variant/30">
+<span class="material-symbols-outlined text-[18px] text-secondary mb-0.5">mail</span>
+<span class="text-[11px] font-label-sm text-on-surface-variant">Email</span>
+</button>
+<button class="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary transition-colors border border-primary/30">
+<span class="material-symbols-outlined text-[18px] mb-0.5">handshake</span>
+<span class="text-[11px] font-label-sm font-semibold">Crear Deal</span>
+</button>
+</div>
+</div>
+<!-- Pipeline Stage Stepper Section -->
+<div class="p-space-base border-b border-outline-variant/20">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-semibold">Etapa de Venta (HubSpot)</span>
+<span class="text-label-sm font-mono text-primary font-bold">Paso 3 de 5</span>
+</div>
+<!-- Pipeline Progress Bar -->
+<div class="grid grid-cols-5 gap-1 mb-2">
+<div class="h-1.5 rounded-full bg-primary" title="1. Contacto Inicial: Completado"></div>
+<div class="h-1.5 rounded-full bg-primary" title="2. Demo Agendada: Completado"></div>
+<div class="h-1.5 rounded-full bg-primary animate-pulse" title="3. Propuesta Enviada: Etapa Actual"></div>
+<div class="h-1.5 rounded-full bg-surface-container-high" title="4. Negociación"></div>
+<div class="h-1.5 rounded-full bg-surface-container-high" title="5. Cierre Ganado"></div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container border border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="text-body-sm font-body-sm font-semibold text-on-surface">Propuesta enviada</span>
+</div>
+<span class="text-label-sm font-mono text-emerald-400 font-bold">$45,000 ARR</span>
+</div>
+</div>
+<!-- Lead Key Properties Card -->
+<div class="p-space-base border-b border-outline-variant/20 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-semibold">Datos del Contacto</span>
+<span class="text-[11px] text-primary cursor-pointer hover:underline">Copiar todo</span>
+</div>
+<div class="space-y-2.5 text-body-sm">
+<div class="flex items-start justify-between gap-2">
+<span class="text-outline text-label-md">Teléfono:</span>
+<div class="flex items-center gap-1.5 font-mono text-on-surface">
+<span>+54 9 11 4589-2310</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors" title="Copiar teléfono">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+</div>
+<div class="flex items-start justify-between gap-2">
+<span class="text-outline text-label-md">Email:</span>
+<a class="font-mono text-secondary hover:underline truncate max-w-[180px]" href="mailto:martin.gomez@techcorp.io">martin.gomez@techcorp.io</a>
+</div>
+<div class="flex items-start justify-between gap-2">
+<span class="text-outline text-label-md">Empresa:</span>
+<span class="text-on-surface text-right">TechCorp Solutions (50-200 emp.)</span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<span class="text-outline text-label-md">Origen:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant text-[11px] font-medium border border-outline-variant/30">Campaña Meta Ads Q1</span>
+</div>
+</div>
+</div>
+<!-- Interactive CRM Tags -->
+<div class="p-space-base border-b border-outline-variant/20">
+<div class="flex items-center justify-between mb-2.5">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-semibold">Etiquetas del Lead</span>
+<button class="text-label-sm text-primary hover:underline font-medium">+ Añadir tag</button>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-lg bg-primary-container/20 border border-primary/40 text-primary text-label-sm font-semibold">Enterprise</span>
+<span class="px-2 py-0.5 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-label-sm font-semibold">Decisor Clave</span>
+<span class="px-2 py-0.5 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 text-label-sm font-semibold">Cierre Mes Actual</span>
+<span class="px-2 py-0.5 rounded-lg bg-surface-container-high text-on-surface-variant text-label-sm border border-outline-variant/30">WhatsApp Inbound</span>
+</div>
+</div>
+<!-- Quick CRM Internal Note -->
+<div class="p-space-base border-b border-outline-variant/20 space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-semibold">Nota Interna de Cuenta</span>
+<span class="text-[11px] text-outline font-mono">Actualizado hace 2h</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant/30 text-body-sm text-on-surface-variant leading-relaxed">
+<p class="text-slate-300 text-body-sm">
+<strong class="text-secondary font-medium">Nota llamada previa:</strong> El CTO prioriza la API REST y SSO SAML. El presupuesto ya está aprobado para Q2. Llamar puntual a las 16hs para revisar DocuSign.
+          </p>
+</div>
+<button class="w-full py-1.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-medium transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">add_comment</span>
+<span>Añadir nota rápida al expediente</span>
+</button>
+</div>
+<!-- Next Scheduled Task / Reminder -->
+<div class="p-space-base space-y-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-semibold">Próxima Tarea Agendada</span>
+<div class="p-3 rounded-xl bg-primary-container/10 border border-primary/30 flex items-start gap-3">
+<input class="mt-1 rounded bg-surface-container border-outline text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+<div class="min-w-0 flex-1">
+<h4 class="font-label-md text-label-md font-semibold text-on-surface">Llamada de cierre comercial</h4>
+<p class="text-label-sm font-label-sm text-primary font-medium flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">event</span> Hoy, 16:00 hs (Google Meet)
+            </p>
+<span class="inline-block mt-2 text-[10px] font-mono text-outline">Sincronizado con Google Calendar &amp; HubSpot</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for Enter sending mock
+  document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.querySelector('textarea');
+    if (textarea) {
+      textarea.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          if (textarea.value.trim().length > 0) {
+            textarea.value = '';
+          }
+        }
+      });
+    }
+  });
+</script></main></div></body></html>

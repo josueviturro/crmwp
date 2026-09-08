@@ -1,14 +1,15 @@
 import type { ReactNode } from 'react';
 import { Sidebar } from './Sidebar';
 import { TopHeader } from './TopHeader';
+import styles from './AppShell.module.css';
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className={styles.shell}>
       <Sidebar />
-      <div className="pl-16">
+      <div className={styles.content}>
         <TopHeader />
-        <main className="pt-14 w-full min-h-screen bg-background">{children}</main>
+        <main className={styles.main}>{children}</main>
       </div>
     </div>
   );

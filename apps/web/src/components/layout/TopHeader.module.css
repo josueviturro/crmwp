@@ -1,0 +1,58 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 4rem;
+  right: 0;
+  height: 3.5rem;
+  background-color: color-mix(in srgb, var(--color-surface-container-lowest) 80%, transparent);
+  backdrop-filter: blur(8px);
+  z-index: 40;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 20%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--spacing-base);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.title {
+  font-size: var(--text-headline-sm-size);
+  line-height: var(--text-headline-sm-line);
+  letter-spacing: var(--text-headline-sm-tracking);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+}
+
+.badge {
+  padding: 0.125rem var(--spacing-xs);
+  border-radius: var(--radius-md);
+  font-size: var(--text-label-sm-size);
+  line-height: var(--text-label-sm-line);
+  letter-spacing: var(--text-label-sm-tracking);
+  font-weight: var(--text-label-sm-weight);
+  background-color: var(--color-surface-container-high);
+  color: var(--color-secondary);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base);
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-primary);
+}

@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 3.5rem);
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+.emptyPanel {
+  width: 20rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface-container-lowest);
+  border-left: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  padding: var(--spacing-base);
+  text-align: center;
+}
+@media (min-width: 1280px) {
+  .emptyPanel {
+    width: 24rem;
+  }
+}
+
+.emptyText {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
