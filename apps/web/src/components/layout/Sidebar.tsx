@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../../auth/AuthContext';
 import styles from './Sidebar.module.css';
 
-const navItems = [
+const baseNavItems = [
   { to: '/inbox', icon: 'chat_bubble', label: 'Mensajes' },
   { to: '/contacts', icon: 'group', label: 'Contactos y Leads' },
   { to: '/pipeline', icon: 'view_kanban', label: 'Pipeline de ventas' },
@@ -9,7 +10,12 @@ const navItems = [
   { to: '/automations', icon: 'schema', label: 'Automatizaciones' },
 ];
 
+const adminNavItem = { to: '/team', icon: 'settings', label: 'Equipo' };
+
 export function Sidebar() {
+  const { user } = useAuth();
+  const navItems = user?.role === 'ADMIN' ? [...baseNavItems, adminNavItem] : baseNavItems;
+
   return (
     <aside className={styles.sidebar}>
       <div className={styles.topSection}>
@@ -32,9 +38,6 @@ export function Sidebar() {
       </div>
 
       <div className={styles.bottomSection}>
-        <NavLink to="/team" title="Equipo" className={styles.settingsLink}>
-          <span className="material-symbols-outlined icon-md">settings</span>
-        </NavLink>
         <div className={styles.agentAvatarWrapper}>
           <div className={styles.agentAvatar}>
             <span className="material-symbols-outlined icon-sm">support_agent</span>
