@@ -10,7 +10,7 @@ const baseNavItems = [
   { to: '/automations', icon: 'schema', label: 'Automatizaciones' },
 ];
 
-const adminNavItem = { to: '/team', icon: 'settings', label: 'Equipo' };
+const adminNavItem = { to: '/team', icon: 'manage_accounts', label: 'Equipo' };
 
 export function Sidebar() {
   const { user } = useAuth();

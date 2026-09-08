@@ -12,6 +12,12 @@ export function TeamPage() {
   const [showInvite, setShowInvite] = useState(false);
 
   const isAdmin = user?.role === 'ADMIN';
+  const adminCount = members.filter((m) => m.role === 'ADMIN').length;
+  const agentCount = members.filter((m) => m.role === 'AGENT').length;
+
+  function formatJoinDate(dateString: string) {
+    return new Date(dateString).toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
 
   async function loadMembers() {
     setLoading(true);
@@ -68,6 +74,23 @@ export function TeamPage() {
       {error && <div className={styles.error}>{error}</div>}
 
       {!loading && !error && (
+        <div className={styles.statsRow}>
+          <div className={styles.statCard}>
+            <span className={styles.statValue}>{members.length}</span>
+            <span className={styles.statLabel}>Total miembros</span>
+          </div>
+          <div className={styles.statCard}>
+            <span className={styles.statValue}>{adminCount}</span>
+            <span className={styles.statLabel}>Admins</span>
+          </div>
+          <div className={styles.statCard}>
+            <span className={styles.statValue}>{agentCount}</span>
+            <span className={styles.statLabel}>Agentes</span>
+          </div>
+        </div>
+      )}
+
+      {!loading && !error && (
         <div className={styles.list}>
           {members.map((member) => {
             const isMe = member.id === user?.id;
@@ -86,6 +109,7 @@ export function TeamPage() {
                     {isMe && <span className={styles.youBadge}>VOS</span>}
                   </div>
                   <p className={styles.email}>{member.email}</p>
+                  <p className={styles.joinDate}>Miembro desde {formatJoinDate(member.createdAt)}</p>
                 </div>
                 <div className={styles.actions}>
                   {isAdmin && !isMe ? (
