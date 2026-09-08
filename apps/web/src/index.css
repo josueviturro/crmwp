@@ -42,6 +42,14 @@
   --color-warning: #fbbf24;
   --color-info: #38bdf8;
 
+  /* Paleta de acento para avatares: cada persona saca un color distinto y estable */
+  --avatar-color-1: #d0bcff;
+  --avatar-color-2: #7dd3fc;
+  --avatar-color-3: #86efac;
+  --avatar-color-4: #fda4af;
+  --avatar-color-5: #fcd34d;
+  --avatar-color-6: #67e8f9;
+
   /* Tipografías */
   --font-heading: 'Geist', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;

@@ -1,8 +1,13 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useEffect, useState, type CSSProperties, type FormEvent } from 'react';
 import { apiFetch, ApiError } from '../../lib/api';
 import { useAuth } from '../../auth/AuthContext';
+import { getAvatarColorVar } from '../../lib/avatarColor';
 import type { Member, Role } from './types';
 import styles from './TeamPage.module.css';
+
+function accentStyle(seed: string): CSSProperties {
+  return { '--accent': getAvatarColorVar(seed) } as CSSProperties;
+}
 
 export function TeamPage() {
   const { user } = useAuth();
@@ -70,22 +75,50 @@ export function TeamPage() {
         )}
       </div>
 
-      {loading && <p className={styles.subtitle}>Cargando equipo...</p>}
       {error && <div className={styles.error}>{error}</div>}
+
+      {loading && (
+        <div>
+          {[0, 1, 2].map((i) => (
+            <div key={i} className={styles.skeletonRow}>
+              <div className={styles.skeletonAvatar} />
+              <div className={styles.skeletonLines}>
+                <div className={styles.skeletonLine} style={{ width: '30%' }} />
+                <div className={styles.skeletonLine} style={{ width: '50%' }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
 
       {!loading && !error && (
         <div className={styles.statsRow}>
-          <div className={styles.statCard}>
-            <span className={styles.statValue}>{members.length}</span>
-            <span className={styles.statLabel}>Total miembros</span>
+          <div className={styles.statCard} style={{ '--stat-color': 'var(--color-primary)' } as CSSProperties}>
+            <div className={styles.statIcon}>
+              <span className="material-symbols-outlined icon-md">groups</span>
+            </div>
+            <div className={styles.statText}>
+              <span className={styles.statValue}>{members.length}</span>
+              <span className={styles.statLabel}>Total miembros</span>
+            </div>
           </div>
-          <div className={styles.statCard}>
-            <span className={styles.statValue}>{adminCount}</span>
-            <span className={styles.statLabel}>Admins</span>
+          <div className={styles.statCard} style={{ '--stat-color': 'var(--color-primary)' } as CSSProperties}>
+            <div className={styles.statIcon}>
+              <span className="material-symbols-outlined icon-md">shield_person</span>
+            </div>
+            <div className={styles.statText}>
+              <span className={styles.statValue}>{adminCount}</span>
+              <span className={styles.statLabel}>Admins</span>
+            </div>
           </div>
-          <div className={styles.statCard}>
-            <span className={styles.statValue}>{agentCount}</span>
-            <span className={styles.statLabel}>Agentes</span>
+          <div className={styles.statCard} style={{ '--stat-color': 'var(--color-info)' } as CSSProperties}>
+            <div className={styles.statIcon}>
+              <span className="material-symbols-outlined icon-md">support_agent</span>
+            </div>
+            <div className={styles.statText}>
+              <span className={styles.statValue}>{agentCount}</span>
+              <span className={styles.statLabel}>Agentes</span>
+            </div>
           </div>
         </div>
       )}
@@ -96,7 +129,7 @@ export function TeamPage() {
             const isMe = member.id === user?.id;
             return (
               <div key={member.id} className={styles.row}>
-                <div className={styles.avatar}>
+                <div className={styles.avatar} style={accentStyle(member.id)}>
                   {member.name
                     .split(' ')
                     .map((n) => n[0])
@@ -122,7 +155,11 @@ export function TeamPage() {
                       <option value="AGENT">Agente</option>
                     </select>
                   ) : (
-                    <span className={styles.roleBadge}>{member.role === 'ADMIN' ? 'Admin' : 'Agente'}</span>
+                    <span
+                      className={`${styles.roleBadge} ${member.role === 'ADMIN' ? styles.roleBadgeAdmin : styles.roleBadgeAgent}`}
+                    >
+                      {member.role === 'ADMIN' ? 'Admin' : 'Agente'}
+                    </span>
                   )}
                   {isAdmin && !isMe && (
                     <button
