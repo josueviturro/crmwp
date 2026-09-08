@@ -20,7 +20,7 @@ export const conversations: Conversation[] = [
     lastMessage: 'Nos gustaría coordinar una demo técnica con el equipo...',
     time: '10:15',
     unreadCount: 2,
-    tag: { label: 'Demo', tone: 'amber' },
+    tag: { label: 'Demo', tone: 'warning' },
   },
   {
     id: '3',
@@ -40,7 +40,7 @@ export const conversations: Conversation[] = [
     status: 'away',
     lastMessage: '¿Tienen soporte 24/7 para el plan Enterprise?',
     time: 'Ayer',
-    tag: { label: 'Nuevo Lead', tone: 'sky' },
+    tag: { label: 'Nuevo Lead', tone: 'info' },
   },
   {
     id: '5',

@@ -9,7 +9,7 @@ export type Conversation = {
   lastMessage: string;
   time: string;
   unreadCount?: number;
-  tag?: { label: string; tone: 'primary' | 'amber' | 'sky' | 'neutral' };
+  tag?: { label: string; tone: 'primary' | 'warning' | 'info' | 'neutral' };
 };
 
 export type Message = {

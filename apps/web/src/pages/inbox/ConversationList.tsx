@@ -1,15 +1,15 @@
 import type { Conversation } from './types';
 
 const statusColor: Record<Conversation['status'], string> = {
-  online: 'bg-emerald-500',
-  away: 'bg-amber-400',
+  online: 'bg-success',
+  away: 'bg-warning',
   offline: '',
 };
 
 const tagClasses: Record<NonNullable<Conversation['tag']>['tone'], string> = {
   primary: 'bg-primary-container/20 text-primary border-primary/30',
-  amber: 'bg-amber-500/10 text-amber-300 border-amber-500/20',
-  sky: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
+  warning: 'bg-warning/10 text-warning border-warning/20',
+  info: 'bg-info/15 text-info border-info/30',
   neutral: 'bg-surface-container-high text-on-surface-variant border-transparent',
 };
 

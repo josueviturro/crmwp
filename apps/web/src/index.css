@@ -58,6 +58,12 @@
   --color-outline: #958ea0;
   --color-outline-variant: #494454;
 
+  /* Colores semánticos propios (no vienen del mockup, se agregan para no depender
+     de la paleta default de Tailwind — success/warning/info) */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-info: #38bdf8;
+
   /* Escala de espaciados */
   --spacing-space-2xs: 0.125rem;
   --spacing-space-xs: 0.25rem;

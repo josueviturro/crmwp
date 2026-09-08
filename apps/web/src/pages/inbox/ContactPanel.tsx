@@ -37,7 +37,7 @@ export function ContactPanel({ contact }: { contact: ContactDetails }) {
         </div>
         <div className="flex items-center justify-between p-2 rounded-xl bg-surface-container border border-outline-variant/20">
           <span className="text-body-sm font-body-sm font-semibold text-on-surface">{contact.pipelineStage}</span>
-          <span className="text-label-sm font-mono text-emerald-400 font-bold">{contact.dealValue}</span>
+          <span className="text-label-sm font-mono text-success font-bold">{contact.dealValue}</span>
         </div>
       </div>
 

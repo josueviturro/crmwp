@@ -21,7 +21,7 @@ export function ChatWindow({ conversation, messages }: Props) {
               {conversation.name}
             </span>
             <div className="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
-              <span className="text-emerald-400 font-medium">
+              <span className="text-success font-medium">
                 {conversation.status === 'online' ? 'En línea' : conversation.status === 'away' ? 'Ausente' : 'Desconectado'}
               </span>
               <span>•</span>
