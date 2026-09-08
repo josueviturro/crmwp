@@ -28,16 +28,16 @@ export function TeamPage() {
     if (!dateString) {
       return { text: 'Nunca inició sesión', stale: true };
     }
-    const diffDays = Math.floor((Date.now() - new Date(dateString).getTime()) / (1000 * 60 * 60 * 24));
-    if (diffDays <= 0) return { text: 'Activo hoy', stale: false };
-    if (diffDays === 1) return { text: 'Último acceso: ayer', stale: false };
-    if (diffDays < 7) return { text: `Último acceso: hace ${diffDays} días`, stale: false };
-    if (diffDays < 30) {
-      const weeks = Math.floor(diffDays / 7);
-      return { text: `Último acceso: hace ${weeks} semana${weeks > 1 ? 's' : ''}`, stale: diffDays >= 14 };
-    }
-    const months = Math.floor(diffDays / 30);
-    return { text: `Último acceso: hace ${months} mes${months > 1 ? 'es' : ''}`, stale: true };
+    const date = new Date(dateString);
+    const diffDays = Math.floor((Date.now() - date.getTime()) / (1000 * 60 * 60 * 24));
+    const formatted = date.toLocaleString('es-AR', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    return { text: `Último acceso: ${formatted}`, stale: diffDays >= 14 };
   }
 
   async function loadMembers() {
