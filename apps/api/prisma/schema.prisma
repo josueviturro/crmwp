@@ -19,6 +19,7 @@ model Tenant {
   users     User[]
   stages    Stage[]
   contacts  Contact[]
+  messages  Message[]
 }
 
 model User {
@@ -32,6 +33,7 @@ model User {
   createdAt        DateTime  @default(now())
   lastLoginAt      DateTime?
   assignedContacts Contact[]
+  sentMessages     Message[]
 }
 
 enum Role {
@@ -50,20 +52,39 @@ model Stage {
 }
 
 model Contact {
-  id           String   @id @default(uuid())
+  id           String    @id @default(uuid())
   name         String
   phone        String
   email        String?
   company      String?
   notes        String?
   stageId      String
-  stage        Stage    @relation(fields: [stageId], references: [id])
+  stage        Stage     @relation(fields: [stageId], references: [id])
   tenantId     String
-  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  tenant       Tenant    @relation(fields: [tenantId], references: [id])
   assignedToId String?
-  assignedTo   User?    @relation(fields: [assignedToId], references: [id])
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  assignedTo   User?     @relation(fields: [assignedToId], references: [id])
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  messages     Message[]
 
   @@unique([tenantId, phone])
+}
+
+model Message {
+  id         String           @id @default(uuid())
+  text       String
+  direction  MessageDirection
+  contactId  String
+  contact    Contact          @relation(fields: [contactId], references: [id])
+  tenantId   String
+  tenant     Tenant           @relation(fields: [tenantId], references: [id])
+  sentById   String?
+  sentBy     User?            @relation(fields: [sentById], references: [id])
+  createdAt  DateTime         @default(now())
+}
+
+enum MessageDirection {
+  INBOUND
+  OUTBOUND
 }

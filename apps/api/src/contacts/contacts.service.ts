@@ -5,6 +5,8 @@ import { UpdateContactDto } from './dto/update-contact.dto.js';
 
 const contactInclude = {
   assignedTo: { select: { id: true, name: true } },
+  stage: { select: { id: true, name: true } },
+  messages: { orderBy: { createdAt: 'desc' as const }, take: 1 },
 } as const;
 
 @Injectable()
