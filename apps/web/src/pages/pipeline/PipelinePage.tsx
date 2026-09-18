@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { apiFetch, ApiError } from '../../lib/api';
 import { getAvatarColorVar } from '../../lib/avatarColor';
-import { StageBarChart } from './StageBarChart';
+import { StageBarChart, type BarDatum } from './StageBarChart';
 import type { Contact, Stage } from '../contacts/types';
+import type { Member } from '../team/types';
 import styles from './PipelinePage.module.css';
+
+const UNASSIGNED_ID = '__unassigned__';
 
 const STALE_DAYS_THRESHOLD = 3;
 
@@ -19,28 +22,51 @@ function initialsOf(name: string) {
 export function PipelinePage() {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [stages, setStages] = useState<Stage[]>([]);
+  const [members, setMembers] = useState<Member[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([apiFetch<Contact[]>('/contacts'), apiFetch<Stage[]>('/stages')])
-      .then(([contactsData, stagesData]) => {
+    Promise.all([
+      apiFetch<Contact[]>('/contacts'),
+      apiFetch<Stage[]>('/stages'),
+      apiFetch<Member[]>('/team'),
+    ])
+      .then(([contactsData, stagesData, membersData]) => {
         setContacts(contactsData);
         setStages([...stagesData].sort((a, b) => a.order - b.order));
+        setMembers(membersData);
       })
       .catch((err) => setError(err instanceof ApiError ? err.message : 'No se pudo cargar el pipeline'))
       .finally(() => setLoading(false));
   }, []);
 
-  const chartData = useMemo(
+  const chartData: BarDatum[] = useMemo(
     () =>
       stages.map((stage) => ({
-        stageId: stage.id,
-        stageName: stage.name,
+        id: stage.id,
+        label: stage.name,
         count: contacts.filter((c) => c.stageId === stage.id).length,
       })),
     [stages, contacts],
   );
+
+  const unassignedCount = useMemo(
+    () => contacts.filter((c) => !c.assignedTo).length,
+    [contacts],
+  );
+
+  const agentData: BarDatum[] = useMemo(() => {
+    const rows = members.map((member) => ({
+      id: member.id,
+      label: member.name,
+      count: contacts.filter((c) => c.assignedTo?.id === member.id).length,
+    }));
+    if (unassignedCount > 0) {
+      rows.push({ id: UNASSIGNED_ID, label: 'Sin asignar', count: unassignedCount });
+    }
+    return rows.sort((a, b) => b.count - a.count);
+  }, [members, contacts, unassignedCount]);
 
   const busiestStage = useMemo(() => {
     if (chartData.length === 0) return null;
@@ -86,7 +112,7 @@ export function PipelinePage() {
                 <span className="material-symbols-outlined icon-md">bar_chart</span>
               </div>
               <div className={styles.statText}>
-                <span className={styles.statValue}>{busiestStage?.stageName ?? '—'}</span>
+                <span className={styles.statValue}>{busiestStage?.label ?? '—'}</span>
                 <span className={styles.statLabel}>Etapa con más contactos</span>
               </div>
             </div>
@@ -97,6 +123,18 @@ export function PipelinePage() {
               <div className={styles.statText}>
                 <span className={styles.statValue}>{staleContacts.length}</span>
                 <span className={styles.statLabel}>Necesitan seguimiento</span>
+              </div>
+            </div>
+            <div
+              className={styles.statCard}
+              style={{ '--stat-color': unassignedCount > 0 ? 'var(--color-error)' : 'var(--color-success)' } as CSSProperties}
+            >
+              <div className={styles.statIcon}>
+                <span className="material-symbols-outlined icon-md">person_off</span>
+              </div>
+              <div className={styles.statText}>
+                <span className={styles.statValue}>{unassignedCount}</span>
+                <span className={styles.statLabel}>Sin asignar</span>
               </div>
             </div>
           </div>
@@ -113,6 +151,18 @@ export function PipelinePage() {
               </div>
             )}
           </div>
+
+          {agentData.length > 0 && (
+            <div className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <h2 className={styles.sectionTitle}>Contactos por agente</h2>
+                <span className={styles.sectionHint}>Carga de trabajo actual del equipo</span>
+              </div>
+              <div className={styles.chartCard}>
+                <StageBarChart data={agentData} />
+              </div>
+            </div>
+          )}
 
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
