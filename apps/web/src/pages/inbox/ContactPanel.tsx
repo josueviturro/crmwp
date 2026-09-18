@@ -1,7 +1,7 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { apiFetch, ApiError } from '../../lib/api';
 import { getAvatarColorVar } from '../../lib/avatarColor';
-import type { Contact } from '../contacts/types';
+import type { Contact, Stage } from '../contacts/types';
 import type { Member } from '../team/types';
 import styles from './ContactPanel.module.css';
 
@@ -19,6 +19,9 @@ export function ContactPanel({ contact, onContactUpdate }: Props) {
   const [notes, setNotes] = useState(contact.notes ?? '');
   const [assignedToId, setAssignedToId] = useState(contact.assignedTo?.id ?? '');
   const [members, setMembers] = useState<Member[]>([]);
+  const [stages, setStages] = useState<Stage[]>([]);
+  const [changingStage, setChangingStage] = useState(false);
+  const [stageError, setStageError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,7 +29,26 @@ export function ContactPanel({ contact, onContactUpdate }: Props) {
     apiFetch<Member[]>('/team')
       .then(setMembers)
       .catch(() => setMembers([]));
+    apiFetch<Stage[]>('/stages')
+      .then((data) => setStages([...data].sort((a, b) => a.order - b.order)))
+      .catch(() => setStages([]));
   }, []);
+
+  async function handleStageChange(stageId: string) {
+    setChangingStage(true);
+    setStageError(null);
+    try {
+      const updated = await apiFetch<Contact>(`/contacts/${contact.id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ stageId }),
+      });
+      onContactUpdate({ ...updated, messages: contact.messages });
+    } catch (err) {
+      setStageError(err instanceof ApiError ? err.message : 'No se pudo cambiar la etapa');
+    } finally {
+      setChangingStage(false);
+    }
+  }
 
   useEffect(() => {
     setCompany(contact.company ?? '');
@@ -84,9 +106,19 @@ export function ContactPanel({ contact, onContactUpdate }: Props) {
 
       <div className={styles.section}>
         <span className={styles.sectionLabel}>Etapa de venta</span>
-        <div className={styles.stageCurrent}>
-          <span className={styles.stageName}>{contact.stage.name}</span>
-        </div>
+        {stageError && <div className={styles.error}>{stageError}</div>}
+        <select
+          className={styles.stageSelect}
+          value={contact.stageId}
+          disabled={changingStage || stages.length === 0}
+          onChange={(e) => handleStageChange(e.target.value)}
+        >
+          {stages.map((stage) => (
+            <option key={stage.id} value={stage.id}>
+              {stage.name}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className={styles.section}>

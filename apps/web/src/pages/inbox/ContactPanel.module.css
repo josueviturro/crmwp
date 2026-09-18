@@ -100,6 +100,32 @@
   background-color: var(--color-primary);
 }
 
+.stageSelect {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 var(--spacing-md);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-container);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  color: var(--color-on-surface);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23958ea0' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+}
+.stageSelect:focus {
+  border-color: var(--color-primary);
+}
+.stageSelect:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .stageCurrent {
   display: flex;
   align-items: center;
