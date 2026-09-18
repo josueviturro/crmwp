@@ -42,6 +42,10 @@ export function InboxPage() {
     setContacts((prev) => prev.map((c) => (c.id === selectedId ? { ...c, messages: [message] } : c)));
   }
 
+  function handleContactUpdate(updated: Contact) {
+    setContacts((prev) => prev.map((c) => (c.id === updated.id ? updated : c)));
+  }
+
   const selectedContact = contacts.find((c) => c.id === selectedId) ?? null;
 
   if (loading) {
@@ -72,7 +76,7 @@ export function InboxPage() {
     <div className={styles.container}>
       <ConversationList contacts={contacts} selectedId={selectedId} onSelect={setSelectedId} />
       <ChatWindow contact={selectedContact} messages={messages} onSendMessage={handleSendMessage} />
-      <ContactPanel contact={selectedContact} />
+      <ContactPanel contact={selectedContact} onContactUpdate={handleContactUpdate} />
     </div>
   );
 }
