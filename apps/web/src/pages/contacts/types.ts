@@ -34,6 +34,7 @@ export type Contact = {
   stage: { id: string; name: string };
   assignedTo: { id: string; name: string } | null;
   createdAt: string;
+  updatedAt: string;
   /** Vista previa: viene con como mucho 1 elemento (el mensaje mas reciente) */
   messages: Message[];
 };
