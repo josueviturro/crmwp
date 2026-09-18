@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service.js';
-import { MessageDirection } from '../generated/prisma/client.js';
+import { MessageDirection, MessageType } from '../generated/prisma/client.js';
 import { CreateMessageDto } from './dto/create-message.dto.js';
 
 const messageInclude = {
@@ -25,7 +25,14 @@ export class MessagesService {
     const direction = dto.direction ?? MessageDirection.OUTBOUND;
     return this.prisma.message.create({
       data: {
+        type: dto.type ?? MessageType.TEXT,
         text: dto.text,
+        mediaUrl: dto.mediaUrl,
+        locationLat: dto.locationLat,
+        locationLng: dto.locationLng,
+        locationName: dto.locationName,
+        contactName: dto.contactName,
+        contactPhone: dto.contactPhone,
         direction,
         contactId,
         tenantId,

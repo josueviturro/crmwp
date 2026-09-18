@@ -72,19 +72,33 @@ model Contact {
 }
 
 model Message {
-  id         String           @id @default(uuid())
-  text       String
-  direction  MessageDirection
-  contactId  String
-  contact    Contact          @relation(fields: [contactId], references: [id])
-  tenantId   String
-  tenant     Tenant           @relation(fields: [tenantId], references: [id])
-  sentById   String?
-  sentBy     User?            @relation(fields: [sentById], references: [id])
-  createdAt  DateTime         @default(now())
+  id           String           @id @default(uuid())
+  type         MessageType      @default(TEXT)
+  text         String?
+  mediaUrl     String?
+  locationLat  Float?
+  locationLng  Float?
+  locationName String?
+  contactName  String?
+  contactPhone String?
+  direction    MessageDirection
+  contactId    String
+  contact      Contact          @relation(fields: [contactId], references: [id])
+  tenantId     String
+  tenant       Tenant           @relation(fields: [tenantId], references: [id])
+  sentById     String?
+  sentBy       User?            @relation(fields: [sentById], references: [id])
+  createdAt    DateTime         @default(now())
 }
 
 enum MessageDirection {
   INBOUND
   OUTBOUND
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  LOCATION
+  CONTACT_CARD
 }

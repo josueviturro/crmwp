@@ -5,10 +5,18 @@ export type Stage = {
 };
 
 export type MessageDirection = 'INBOUND' | 'OUTBOUND';
+export type MessageType = 'TEXT' | 'IMAGE' | 'LOCATION' | 'CONTACT_CARD';
 
 export type Message = {
   id: string;
-  text: string;
+  type: MessageType;
+  text: string | null;
+  mediaUrl: string | null;
+  locationLat: number | null;
+  locationLng: number | null;
+  locationName: string | null;
+  contactName: string | null;
+  contactPhone: string | null;
   direction: MessageDirection;
   contactId: string;
   sentBy: { id: string; name: string } | null;

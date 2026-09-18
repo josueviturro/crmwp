@@ -16,6 +16,48 @@ function formatTime(dateString: string) {
   return new Date(dateString).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
 }
 
+function MessageContent({ message }: { message: Message }) {
+  switch (message.type) {
+    case 'IMAGE':
+      return (
+        <>
+          {message.mediaUrl && <img src={message.mediaUrl} alt="Imagen enviada" className={styles.mediaImage} />}
+          {message.text && <p className={styles.bubbleText}>{message.text}</p>}
+        </>
+      );
+    case 'LOCATION':
+      return (
+        <div className={styles.richCard}>
+          <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+            location_on
+          </span>
+          <div>
+            <p className={styles.richCardTitle}>{message.locationName ?? 'Ubicación compartida'}</p>
+            {message.locationLat != null && message.locationLng != null && (
+              <p className={styles.richCardSubtitle}>
+                {message.locationLat.toFixed(5)}, {message.locationLng.toFixed(5)}
+              </p>
+            )}
+          </div>
+        </div>
+      );
+    case 'CONTACT_CARD':
+      return (
+        <div className={styles.richCard}>
+          <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
+            contact_page
+          </span>
+          <div>
+            <p className={styles.richCardTitle}>{message.contactName ?? 'Contacto compartido'}</p>
+            {message.contactPhone && <p className={styles.richCardSubtitle}>{message.contactPhone}</p>}
+          </div>
+        </div>
+      );
+    default:
+      return <p className={styles.bubbleText}>{message.text}</p>;
+  }
+}
+
 type Props = {
   contact: Contact;
   messages: Message[];
@@ -78,7 +120,7 @@ export function ChatWindow({ contact, messages, onSendMessage }: Props) {
                 {isAgent ? (message.sentBy?.name ?? 'Vos') : contact.name}
               </div>
               <div className={`${styles.bubble} ${isAgent ? styles.bubbleAgent : styles.bubbleCustomer}`}>
-                <p className={styles.bubbleText}>{message.text}</p>
+                <MessageContent message={message} />
                 <div className={styles.bubbleTime}>
                   <span>{formatTime(message.createdAt)}</span>
                 </div>

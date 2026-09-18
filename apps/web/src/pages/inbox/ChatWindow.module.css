@@ -124,6 +124,34 @@
   border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
 }
 
+.mediaImage {
+  display: block;
+  max-width: 260px;
+  max-height: 260px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.richCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 180px;
+}
+
+.richCardTitle {
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  margin: 0;
+}
+
+.richCardSubtitle {
+  font-size: var(--text-label-sm-size);
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-mono);
+  margin: 0.125rem 0 0;
+}
+
 .bubbleText {
   font-size: var(--text-body-md-size);
   line-height: 1.6;

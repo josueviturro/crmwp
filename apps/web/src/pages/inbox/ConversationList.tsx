@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import { getAvatarColorVar } from '../../lib/avatarColor';
-import type { Contact } from '../contacts/types';
+import type { Contact, Message } from '../contacts/types';
 import styles from './ConversationList.module.css';
 
 function initialsOf(name: string) {
@@ -10,6 +10,19 @@ function initialsOf(name: string) {
     .join('')
     .slice(0, 2)
     .toUpperCase();
+}
+
+function previewOf(message: Message) {
+  switch (message.type) {
+    case 'IMAGE':
+      return '📷 Foto';
+    case 'LOCATION':
+      return '📍 Ubicación';
+    case 'CONTACT_CARD':
+      return '👤 Contacto compartido';
+    default:
+      return message.text ?? '';
+  }
 }
 
 function formatTime(dateString: string) {
@@ -87,7 +100,7 @@ export function ConversationList({ contacts, selectedId, onSelect }: Props) {
                   <span className={`${styles.tag} ${styles.tagNeutral}`}>{contact.stage.name}</span>
                 </div>
                 <div className={styles.rowBottom}>
-                  <p className={styles.preview}>{lastMessage ? lastMessage.text : 'Sin mensajes todavía'}</p>
+                  <p className={styles.preview}>{lastMessage ? previewOf(lastMessage) : 'Sin mensajes todavía'}</p>
                 </div>
               </div>
             </button>
