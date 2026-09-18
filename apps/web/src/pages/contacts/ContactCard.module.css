@@ -1,0 +1,94 @@
+.card {
+  background-color: var(--color-surface-container-low);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 25%, transparent);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  cursor: grab;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    border-color 0.15s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-primary) 35%, transparent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.card:active {
+  cursor: grabbing;
+}
+.dragging {
+  opacity: 0.4;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  background-color: color-mix(in srgb, var(--accent, var(--color-primary)) 18%, var(--color-surface-container-high));
+  border: 1px solid color-mix(in srgb, var(--accent, var(--color-primary)) 40%, transparent);
+  color: var(--accent, var(--color-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.nameBlock {
+  min-width: 0;
+}
+
+.name {
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  color: var(--color-on-surface);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.company {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-outline);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone {
+  font-size: var(--text-label-sm-size);
+  font-family: var(--font-mono);
+  color: var(--color-on-surface-variant);
+}
+
+.assignee {
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: var(--radius-full);
+  background-color: color-mix(in srgb, var(--assignee-accent, var(--color-secondary)) 22%, var(--color-surface-container-high));
+  color: var(--assignee-accent, var(--color-secondary));
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

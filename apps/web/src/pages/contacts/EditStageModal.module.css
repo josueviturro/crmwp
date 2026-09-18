@@ -1,0 +1,135 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  width: 22rem;
+  background-color: var(--color-surface-container-low);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.title {
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.label {
+  display: block;
+  font-size: var(--text-label-sm-size);
+  color: var(--color-on-surface-variant);
+  margin-bottom: 0.25rem;
+}
+
+.input {
+  width: 100%;
+  height: 2.25rem;
+  padding-inline: var(--spacing-sm);
+  background-color: var(--color-surface-container);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  border-radius: var(--radius-md);
+  color: var(--color-on-surface);
+  font-size: var(--text-body-sm-size);
+  box-sizing: border-box;
+  outline: none;
+}
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+.moveRow {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.moveButton {
+  flex: 1;
+  height: 2.25rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-container);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  color: var(--color-on-surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: var(--text-label-sm-size);
+}
+.moveButton:hover {
+  background-color: var(--color-surface-container-high);
+}
+.moveButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.error {
+  background-color: color-mix(in srgb, var(--color-error-container) 40%, transparent);
+  color: var(--color-error);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-body-sm-size);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-xs);
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  color: var(--color-error);
+  cursor: pointer;
+  font-size: var(--text-body-sm-size);
+  font-weight: 500;
+  padding: 0.5rem;
+}
+.deleteButton:hover {
+  text-decoration: underline;
+}
+
+.rightActions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.cancelButton {
+  padding: 0.5rem var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+  font-size: var(--text-body-sm-size);
+}
+
+.saveButton {
+  padding: 0.5rem var(--spacing-md);
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  border: none;
+  color: var(--color-on-primary);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--text-body-sm-size);
+}
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
