@@ -16,18 +16,34 @@ function formatTime(dateString: string) {
   return new Date(dateString).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
 }
 
-function MessageContent({ message }: { message: Message }) {
+function MessageContent({ message, onImageClick }: { message: Message; onImageClick: (url: string) => void }) {
   switch (message.type) {
     case 'IMAGE':
       return (
         <>
-          {message.mediaUrl && <img src={message.mediaUrl} alt="Imagen enviada" className={styles.mediaImage} />}
+          {message.mediaUrl && (
+            <img
+              src={message.mediaUrl}
+              alt="Imagen enviada"
+              className={styles.mediaImage}
+              onClick={() => onImageClick(message.mediaUrl!)}
+            />
+          )}
           {message.text && <p className={styles.bubbleText}>{message.text}</p>}
         </>
       );
     case 'LOCATION':
       return (
-        <div className={styles.richCard}>
+        <a
+          className={styles.richCard}
+          href={
+            message.locationLat != null && message.locationLng != null
+              ? `https://www.google.com/maps?q=${message.locationLat},${message.locationLng}`
+              : undefined
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span className="material-symbols-outlined" style={{ fontSize: 20 }}>
             location_on
           </span>
@@ -39,7 +55,7 @@ function MessageContent({ message }: { message: Message }) {
               </p>
             )}
           </div>
-        </div>
+        </a>
       );
     case 'CONTACT_CARD':
       return (
@@ -67,6 +83,7 @@ type Props = {
 export function ChatWindow({ contact, messages, onSendMessage }: Props) {
   const [draft, setDraft] = useState('');
   const [sending, setSending] = useState(false);
+  const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
   const accentStyle = { '--accent': getAvatarColorVar(contact.id) } as CSSProperties;
 
   async function handleSend() {
@@ -120,7 +137,7 @@ export function ChatWindow({ contact, messages, onSendMessage }: Props) {
                 {isAgent ? (message.sentBy?.name ?? 'Vos') : contact.name}
               </div>
               <div className={`${styles.bubble} ${isAgent ? styles.bubbleAgent : styles.bubbleCustomer}`}>
-                <MessageContent message={message} />
+                <MessageContent message={message} onImageClick={setLightboxUrl} />
                 <div className={styles.bubbleTime}>
                   <span>{formatTime(message.createdAt)}</span>
                 </div>
@@ -150,6 +167,15 @@ export function ChatWindow({ contact, messages, onSendMessage }: Props) {
           </button>
         </div>
       </div>
+
+      {lightboxUrl && (
+        <div className={styles.lightboxOverlay} onClick={() => setLightboxUrl(null)}>
+          <button className={styles.lightboxClose} onClick={() => setLightboxUrl(null)}>
+            <span className="material-symbols-outlined">close</span>
+          </button>
+          <img src={lightboxUrl} alt="Imagen ampliada" className={styles.lightboxImage} />
+        </div>
+      )}
     </section>
   );
 }

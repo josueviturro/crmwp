@@ -130,6 +130,11 @@
   max-height: 260px;
   border-radius: var(--radius-lg);
   object-fit: cover;
+  cursor: zoom-in;
+  transition: opacity 0.15s;
+}
+.mediaImage:hover {
+  opacity: 0.9;
 }
 
 .richCard {
@@ -137,6 +142,49 @@
   align-items: center;
   gap: var(--spacing-sm);
   min-width: 180px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.richCard:hover {
+  opacity: 0.85;
+}
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  cursor: zoom-out;
+}
+
+.lightboxImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background-color: color-mix(in srgb, var(--color-surface-container-lowest) 80%, transparent);
+  border: none;
+  color: var(--color-on-surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightboxClose:hover {
+  background-color: var(--color-surface-container-high);
 }
 
 .richCardTitle {
